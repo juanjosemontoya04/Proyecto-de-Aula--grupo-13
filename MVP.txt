@@ -1,0 +1,18 @@
+1. Descripción del MVP
+El MVP de la plataforma de diseño de ropa personalizada permite a los usuarios registrarse, iniciar sesión, y comenzar a diseñar prendas. 
+Incluye la selección de tipos de prendas, colores, tejidos y detalles opcionales. Este MVP no se centrará en las funciones avanzadas como interacción social o ajustes detallados de tallas en este momento.
+
+2. Tecnologías Seleccionadas y Diseño
+Lenguaje de Programación: C#
+Framework: .NET Core (versión más reciente)
+Repositorio de Código: GitHub
+
+3. Modelo de Datos:
+Usuario: Incluye propiedades como Correo, Contraseña, etc.
+Prenda: Incluye propiedades como Tipo, Color, Tejido, Detalles.
+Controladores:
+- Contiene los métodos para RegistrarUsuario, IniciarSesion.
+- Contiene los métodos para DiseñarPrenda.
+
+4. Vistas:
+Formularios para el registro de usuario, inicio de sesión, y diseño de prendas.
