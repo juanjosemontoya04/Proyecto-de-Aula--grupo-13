@@ -16,3 +16,13 @@ Controladores:
 
 4. Vistas:
 Formularios para el registro de usuario, inicio de sesión, y diseño de prendas.
+
+* Arquitectura General *
+El sistema se basa en una arquitectura sencilla, orientada a objetos, que sigue una estructura modular. Separa las responsabilidades en clases específicas para manejar usuarios, prendas, y las listas enlazadas. La estructura principal es:
+
+Clases de Datos: Nodo, Prenda, y Usuario definen las entidades básicas del sistema.
+Estructuras de Datos: listaenlzprendas y ListaEnlazadaUsuarios implementan listas enlazadas para gestionar dinámicamente las prendas y los usuarios.
+
+Controladores: controlarusuario y controladordeprendas encapsulan la lógica de negocio relacionada con las operaciones sobre los usuarios y las prendas.
+
+Interfaz de Usuario: La interacción con el usuario se maneja en la clase Program, que proporciona un menú de consola para acceder a las distintas funcionalidades.
