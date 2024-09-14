@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using static System.Console;
 using static System.Convert;
@@ -186,7 +186,7 @@ public class controladordeprendas
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static void Main()
     {
         controlarusuario controldelosusuarios = new controlarusuario();
         controladordeprendas controlprendas = new controladordeprendas();
@@ -198,16 +198,16 @@ public class Program
             WriteLine("2. Iniciar Sesión");
             WriteLine("3. Diseñar Prenda");
             WriteLine("4. Salir");
-            Console.Write("Seleccione una opción: ");
-            string opcion = Console.ReadLine();
+            Write("Seleccione una opción: ");
+            string opcion = ReadLine();
 
             switch (opcion)
             {
                 case "1":
-                    Console.Write("Ingrese correo: ");
-                    string correo = Console.ReadLine();
-                    Console.Write("Ingrese contraseña: ");
-                    string contraseña = Console.ReadLine();
+                    Write("Ingrese correo: ");
+                    string correo = ReadLine();
+                    Write("Ingrese contraseña: ");
+                    string contraseña = ReadLine();
 
                     if (controldelosusuarios.RegistrarUsuario(correo, contraseña))
                     {
@@ -220,10 +220,10 @@ public class Program
                     break;
 
                 case "2":
-                    Console.Write("Ingrese correo: ");
-                    correo = Console.ReadLine();
-                    Console.Write("Ingrese contraseña: ");
-                    contraseña = Console.ReadLine();
+                    Write("Ingrese correo: ");
+                    correo = ReadLine();
+                    Write("Ingrese contraseña: ");
+                    contraseña = ReadLine();
 
                     usuarioActual = controldelosusuarios.IniciarSesion(correo, contraseña);
 
@@ -240,14 +240,14 @@ public class Program
                 case "3":
                     if (usuarioActual != null)
                     {
-                        Console.Write("Ingrese tipo de prenda: ");
-                        string tipo = Console.ReadLine();
-                        Console.Write("Ingrese color: ");
-                        string color = Console.ReadLine();
-                        Console.Write("Ingrese tejido: ");
-                        string tejido = Console.ReadLine();
-                        Console.Write("Ingrese detalles: ");
-                        string detalles = Console.ReadLine();
+                        Write("Ingrese tipo de prenda: ");
+                        string tipo = ReadLine();
+                        Write("Ingrese color: ");
+                        string color = ReadLine();
+                        Write("Ingrese tejido: ");
+                        string tejido = ReadLine();
+                        Write("Ingrese detalles: ");
+                        string detalles = ReadLine();
 
                         controlprendas.DiseñarPrenda(usuarioActual, tipo, color, tejido, detalles);
                         WriteLine("Prenda diseñada exitosamente.");
