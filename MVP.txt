@@ -1,28 +1,38 @@
 1. Descripción del MVP
-El MVP de la plataforma de diseño de ropa personalizada permite a los usuarios registrarse, iniciar sesión, y comenzar a diseñar prendas. 
-Incluye la selección de tipos de prendas, colores, tejidos y detalles opcionales. Este MVP no se centrará en las funciones avanzadas como interacción social o ajustes detallados de tallas en este momento.
+El MVP de la plataforma de diseño de ropa personalizada permite a los usuarios registrarse, iniciar sesión y diseñar prendas. Ahora incluye la selección de tipos de prendas, colores, tejidos, detalles opcionales y la capacidad de ajustar la talla de las prendas. Los usuarios también pueden ver una vista previa de sus diseños y compartirlos.
 
 2. Tecnologías Seleccionadas y Diseño
 Lenguaje de Programación: C#
 Framework: .NET Core (versión más reciente)
 Repositorio de Código: GitHub
 
-3. Modelo de Datos:
-Usuario: Incluye propiedades como Correo, Contraseña, etc.
-Prenda: Incluye propiedades como Tipo, Color, Tejido, Detalles.
-Controladores:
-- Contiene los métodos para RegistrarUsuario, IniciarSesion.
-- Contiene los métodos para DiseñarPrenda.
+3. Modelo de Datos
+Usuario: Contiene propiedades como correo, contraseña y una lista enlazada de prendasdiseñadas.
+Prenda: Contiene propiedades como tipo, color, tejido, detalles y una nueva propiedad talla (por defecto "Standard", pero ajustable por el usuario).
 
-4. Vistas:
-Formularios para el registro de usuario, inicio de sesión, y diseño de prendas.
+4. Controladores
+controlarusuario: Maneja el registro de usuarios e inicio de sesión.
+controladordeprendas: Permite a los usuarios diseñar prendas, ajustar la talla, obtener una vista previa de la prenda, y compartir el diseño.
 
-* Arquitectura General *
-El sistema se basa en una arquitectura sencilla, orientada a objetos, que sigue una estructura modular. Separa las responsabilidades en clases específicas para manejar usuarios, prendas, y las listas enlazadas. La estructura principal es:
+5. Vistas
 
-Clases de Datos: Nodo, Prenda, y Usuario definen las entidades básicas del sistema.
-Estructuras de Datos: listaenlzprendas y ListaEnlazadaUsuarios implementan listas enlazadas para gestionar dinámicamente las prendas y los usuarios.
+Formularios básicos de consola para:
 
-Controladores: controlarusuario y controladordeprendas encapsulan la lógica de negocio relacionada con las operaciones sobre los usuarios y las prendas.
+Registro de Usuario
+Inicio de Sesión
+Diseño de Prendas
+Ajuste de Talla
+Vista Previa de la Prenda
+Compartir Diseño
 
-Interfaz de Usuario: La interacción con el usuario se maneja en la clase Program, que proporciona un menú de consola para acceder a las distintas funcionalidades.
+6. Arquitectura General
+
+El sistema sigue una arquitectura modular, orientada a objetos:
+
+Clases de Datos: Nodo, Prenda, y Usuario definen las entidades básicas.
+
+Estructuras de Datos: listaenlzprendas y ListaEnlazadaUsuarios utilizan listas enlazadas para manejar prendas y usuarios dinámicamente.
+
+Controladores: controlarusuario y controladordeprendas encapsulan la lógica.
+
+Interfaz de Usuario: Se utiliza un menú de consola para acceder a las funcionalidades principales como diseñar, ajustar talla, ver vista previa, y compartir el diseño.
