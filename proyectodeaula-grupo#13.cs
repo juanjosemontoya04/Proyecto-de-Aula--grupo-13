@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using static System.Console;
 using static System.Convert;
@@ -21,6 +21,7 @@ public class Prenda
     public string color { get; set; }
     public string tejido { get; set; }
     public string detalles { get; set; }
+    public string talla { get; set; }
 
     public Prenda(string tipo, string color, string tejido, string detalles)
     {
@@ -28,6 +29,7 @@ public class Prenda
         this.color = color;
         this.tejido = tejido;
         this.detalles = detalles;
+        this.talla = "Standard";
     }
 }
 
@@ -182,6 +184,23 @@ public class controladordeprendas
         Prenda nueva = new Prenda(tipo, color, tejido, detalles);
         usuario.prendasdiseñadas.AgregarPrenda(nueva);
     }
+
+    public void AjustarTalla(Usuario usuario, Prenda prenda, string talla)
+    {
+        prenda.talla = talla;
+    }
+
+
+    public void VistaPrevia(Prenda prenda)
+    {
+        WriteLine($"Prenda preview: {prenda.tipo} - {prenda.color} - {prenda.talla}");
+    }
+
+
+    public void CompartirDiseño(Usuario usuario, Prenda prenda)
+    {
+        WriteLine($"Diseño de {prenda.tipo} compartido.");
+    }
 }
 
 public class Program
@@ -197,7 +216,10 @@ public class Program
             WriteLine("1. Registrar Usuario");
             WriteLine("2. Iniciar Sesión");
             WriteLine("3. Diseñar Prenda");
-            WriteLine("4. Salir");
+            WriteLine("4. Ajustar Talla");
+            WriteLine("5. Vista Previa");
+            WriteLine("6. Compartir Diseño");
+            WriteLine("7. Salir");
             Write("Seleccione una opción: ");
             string opcion = ReadLine();
 
@@ -259,6 +281,50 @@ public class Program
                     break;
 
                 case "4":
+                    if (usuarioActual != null)
+                    {
+                       
+                        Write("Ingrese la talla deseada (Standard o medida clave): ");
+                        string talla = ReadLine();
+
+                        
+                        Prenda prenda = usuarioActual.prendasdiseñadas.ObtenerPrendas()[0]; 
+                        controlprendas.AjustarTalla(usuarioActual, prenda, talla);
+                        WriteLine("Talla ajustada exitosamente.");
+                    }
+                    else
+                    {
+                        WriteLine("Debe iniciar sesión primero.");
+                    }
+                    break;
+
+                case "5":
+                    if (usuarioActual != null)
+                    {
+                        
+                        Prenda prenda = usuarioActual.prendasdiseñadas.ObtenerPrendas()[0]; 
+                        controlprendas.VistaPrevia(prenda);
+                    }
+                    else
+                    {
+                        WriteLine("Debe iniciar sesión primero.");
+                    }
+                    break;
+
+                case "6":
+                    if (usuarioActual != null)
+                    {
+                        
+                        Prenda prenda = usuarioActual.prendasdiseñadas.ObtenerPrendas()[0];
+                        controlprendas.CompartirDiseño(usuarioActual, prenda);
+                    }
+                    else
+                    {
+                        WriteLine("Debe iniciar sesión primero.");
+                    }
+                    break;
+
+                case "7":
                     WriteLine("Saliendo...");
                     return;
 
